@@ -1,25 +1,60 @@
-# README
+<h1>Currency Transaction</h1> 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p>A FX transactions will store how much money we will receive from our customers in the input currency, and how much we will pay them out in the output currency</p> 
 
-Things you may want to cover:
+<h2>Getting started</h2> 
 
-* Ruby version
+<p>1. Before you clone the repo make sure you have the correct versions installed.</p>  
 
-* System dependencies
+``` 
+ruby --version
+```  
+<p>ruby 2.7.0</p>
 
-* Configuration
+``` 
+sqlite3 --version
+``` 
+<p>A version should be installed</p>
 
-* Database creation
+``` 
+node --version
+```  
+<p>Make sure node version is greater than 8.16.0.</p>
 
-* Database initialization
+```
+yarn --version
+``` 
+<p>1.22.0</p> 
 
-* How to run the test suite
+``` 
+rails --version
+``` 
+<p>Rails 7.0.0 or greater</p>
+ 
+<p>2. Copy the repo and clone it into a new foler.</p>
 
-* Services (job queues, cache servers, search engines, etc.)
+``` 
+https://github.com/Ben-glitch-cloud/Currenty_transaction_app.git
+```
+ 
+<p>3. Install all gems and dependys.</p>  
 
-* Deployment instructions
+``` 
+Install bundle
+```  
 
-* ...
-# Currenty_transaction_app
+<p>4. To start the application.</p> 
+
+``` 
+rails s
+```  
+
+<p>5. Head to localhost 3000 in the search bar.</p>  
+
+```
+http://localhost:3000/
+```
+
+<p>And your good to go 👍</p>
+
+

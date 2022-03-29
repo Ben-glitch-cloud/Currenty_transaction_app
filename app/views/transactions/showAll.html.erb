@@ -7,7 +7,7 @@
 } 
 
 table{
-    width: 80%;  
+    width: 90%;  
     border-spacing: 5px;
     border-collapse: separate;
 }  
@@ -82,7 +82,7 @@ body{
 
     <div class='navCon'>  
         <ul>
-            <li><a href="/transactions/index">Home page</a></li>
+            <li><a href="/transactions/index">Home</a></li>
             <li><a href="/transactions/new">Creat a new transaction</a></li> 
         </ul>
     </div>
@@ -90,7 +90,8 @@ body{
 
 <div class='tableCon'>
 <table>  
-    <tr>
+    <tr> 
+        <th>Id</th>
         <th>Customer ID</th>
         <th>Currency Input</th>
         <th>Amount Input</th> 
@@ -100,7 +101,8 @@ body{
         <th>Link</th>
     </tr>
         <% @transactions.each do |t| %> 
-        <tr>
+        <tr>    
+            <td><%= t.id %></td>
             <td><%= t.customer_id %></td>
             <td><%= t.currency_input %></td>
             <td><%= t.amount_input %></td>

@@ -83,7 +83,6 @@
   <div>
     <%= form.label :amount_input %>
     <%= form.number_field :amount_input, id: "amount_input", oninput: "getAmountInput()", step: :any %> 
-
     <% @transaction.errors.full_messages_for(:amount_input).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -140,15 +139,9 @@
   }  
 
   function Convert_Currenry(){ 
-
-    
     if(curreny_input.length > 0 && curreny_output.length > 0 && amount_input.length > 0 && curreny_input !== curreny_output){ 
-
-      let Currenty = (Number(amount_input) * CurrencyExchange[curreny_output]).toFixed(2) 
-       
-      document.getElementById("amount_output").value = Currenty 
-
-      document.getElementById('amount_set').value = Currency
+      let Currency = (Number(CurrencyExchange[curreny_output]) / Number(CurrencyExchange[curreny_input])) * Number(amount_input).toFixed(2)
+      document.getElementById("amount_output").value = Currency.toFixed(2) 
 
     }
   }
