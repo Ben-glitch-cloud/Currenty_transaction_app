@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  currency_input: MyString
+  amount_input: 1
+  currency_output: MyString
+  amount_output: 1
+
+two:
+  customer_id: 1
+  currency_input: MyString
+  amount_input: 1
+  currency_output: MyString
+  amount_output: 1
