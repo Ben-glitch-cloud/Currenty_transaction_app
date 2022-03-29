@@ -7,7 +7,9 @@ class TransactionsController < ApplicationController
   end  
 
   def show  
-    @transaction = Transaction.find(params[:id]) 
+    @transaction = Transaction.find(params[:id])   
+
+    # render :json => @transaction = Transaction.find(params[:id]) 
   end  
 
   def new  
