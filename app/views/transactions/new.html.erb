@@ -73,7 +73,10 @@
 <%= form_with model: @transaction, url: transactions_create_path do |form| %>
   <div>
     <%= form.label :customer_id %><br>
-    <%= form.text_field :customer_id %>
+    <%= form.text_field :customer_id %>  
+     <% @transaction.errors.full_messages_for(:customer_id).each do |message| %>
+      <p><%= message %></p>
+    <% end %>
   </div>
 
   <div>
@@ -139,10 +142,11 @@
   }  
 
   function Convert_Currenry(){ 
-    if(curreny_input.length > 0 && curreny_output.length > 0 && amount_input.length > 0 && curreny_input !== curreny_output){ 
+    if(curreny_input.length > 0 && curreny_output.length > 0 && amount_input.length > 0 && curreny_input != curreny_output){ 
       let Currency = (Number(CurrencyExchange[curreny_output]) / Number(CurrencyExchange[curreny_input])) * Number(amount_input).toFixed(2)
       document.getElementById("amount_output").value = Currency.toFixed(2) 
-
+    } else {
+      document.getElementById("amount_output").value = 0
     }
   }
 
