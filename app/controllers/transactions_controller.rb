@@ -8,8 +8,6 @@ class TransactionsController < ApplicationController
 
   def show  
     @transaction = Transaction.find(params[:id])   
-
-    # render :json => @transaction = Transaction.find(params[:id]) 
   end  
 
   def new  
@@ -17,9 +15,7 @@ class TransactionsController < ApplicationController
   end   
 
   def create  
-
     @transaction = Transaction.new(article_params)
-
     if @transaction.save
       redirect_to '/transactions/showAll'
     else

@@ -47,11 +47,42 @@
   display: flex; 
   justify-content: center; 
   
-} 
+}  
+
+.FormItem{
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+   padding: 10px 20px; 
+   border-radius: 10px;
+}
 
 .FormItem div{
-  margin: 7.5px 0px;
+  margin: 14px 0px; 
+  font-family: sans-serif; 
+  font-size: 18px; 
 } 
+
+#submitButton{
+  padding: 7.5px 10px; 
+  border-radius: 5px; 
+  background-color: rgb(47,79,79); 
+  color: white; 
+  border: solid 2px black;
+} 
+
+#submitButton:hover{
+  background-color: rgb(86,31,48); 
+} 
+
+.error{
+  color: red; 
+  font-size: 14px;
+} 
+
+.inputType{
+  display: flex; 
+  flex-direction: column; 
+  margin: 10px 0px;
+}
 
 </style> 
 
@@ -71,43 +102,44 @@
 <div class='FormCon'> 
 <div class='FormItem'>
 <%= form_with model: @transaction, url: transactions_create_path do |form| %>
-  <div>
-    <%= form.label :customer_id %><br>
+  <div class='inputType'>
+    <%= form.label :customer_id %>
     <%= form.text_field :customer_id %>  
      <% @transaction.errors.full_messages_for(:customer_id).each do |message| %>
-      <p><%= message %></p>
+      <div class='error'><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= form.label :currency_input %>
+  <div class='inputType'>
+    <%= form.label :currency_input %> 
     <%= form.select :currency_input, [['USD', 'USD'], ['EUR', 'EUR'], ['JPY', 'JPY'], ['CHF', 'CHF'], ['GBP', 'GBP']], {}, selected: 'EUR', id: "curreny_input", onchange: "getCurrencyInputValue()" %>   
-  </div>
-  <div>
-    <%= form.label :amount_input %>
+  </div> 
+
+  <div class='inputType'>
+    <%= form.label :amount_input %> 
     <%= form.number_field :amount_input, id: "amount_input", oninput: "getAmountInput()", step: :any %> 
     <% @transaction.errors.full_messages_for(:amount_input).each do |message| %>
-      <div><%= message %></div>
+      <div class='error'><%= message %></div>
     <% end %>
 
   </div>  
 
-  <div>
-    <%= form.label :currency_output %>
+  <div class='inputType'>
+    <%= form.label :currency_output %> 
     <%= form.select :currency_output, [['EUR', 'EUR'], ['USD', 'USD'], ['JPY', 'JPY'], ['CHF', 'CHF'], ['GBP', 'GBP']], {}, selected: 'USD', id: "curreny_output", onchange: "getCurrencyOutputValue()" %>  
+    </div>  
 
-    </div> 
-     <div>
-    <%= form.label :amount_output %>
+     <div class='inputType'>
+    <%= form.label :amount_output %> 
     <%= form.number_field :amount_output, id: "amount_output", step: :any %>  
      <% @transaction.errors.full_messages_for(:amount_output).each do |message| %>
-      <div><%= message %></div>
+      <div class='error'><%= message %></div>
     <% end %>
  
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit id: "submitButton" %>
   </div>
 <% end %>   
 </div>
