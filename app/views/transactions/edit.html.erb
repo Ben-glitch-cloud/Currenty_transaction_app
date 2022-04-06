@@ -1,22 +1,103 @@
-<link href='/Currency_transaction/app/assets/stylesheets/new.css' rel="stylesheet" type="text/css"> 
+<%# <link href='/Currency_transaction/app/assets/stylesheets/edit.css' rel="stylesheet" type="text/css"> %>
 
 
-<div class='nav'>
-    <div class='navTitle'> 
-        <h1>Create A New Transcation</h1>
-    </div> 
+<style> 
+body{
+    margin: 0px; 
+    padding: 0px;
+}
 
-    <div class='navCon'>  
-        <ul>
-            <li><a href="/transactions/showAll">Show All</a></li>
-            <li><a href="/transactions/index">Home</a></li> 
-        </ul>
-    </div>
-</div>
+.nav{
+    width: 100%; 
+    height: 70px; 
+    justify-content: space-between;  
+    display: flex; 
+    flex-direction: row;
+    align-items: center;  
+    background: rgb(220,220,220); 
+    margin-bottom: 80px;
+} 
 
-<div class='FormCon'> 
-<div class='FormItem'>
-<%= form_with model: @transaction, url: transactions_create_path do |form| %>
+.navTitle h1{
+    font-size: 20px; 
+    color: rgb(105,105,105);  
+    margin-left: 30px; 
+    font-family: sans-serif;
+} 
+
+.navCon{
+    margin-right: 40px;
+} 
+
+.navCon ul li{
+    display: inline; 
+    margin: 0px 10px; 
+    font-family: sans-serif;   
+} 
+
+.navCon ul li a{
+    text-decoration: none;
+    color: rgb(105,105,105);
+} 
+
+.navCon ul li a:hover{
+    color: rgb(86,31,48);
+} 
+
+.FormCon{
+  width: 100%;  
+  display: flex; 
+  justify-content: center; 
+  
+}  
+
+.FormItem{
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+   padding: 10px 20px; 
+   border-radius: 10px;
+}
+
+.FormItem div{
+  margin: 14px 0px; 
+  font-family: sans-serif; 
+  font-size: 18px; 
+} 
+
+#submitButton{
+  padding: 7.5px 10px; 
+  border-radius: 5px; 
+  background-color: rgb(47,79,79); 
+  color: white; 
+  border: solid 2px black;
+} 
+
+#submitButton:hover{
+  background-color: rgb(86,31,48); 
+} 
+
+.error{
+  color: red; 
+  font-size: 14px; 
+  padding: 0px;
+  margin: 0px; 
+  height: 0px;
+}  
+
+.error p{
+  padding: 0px;
+  margin: 0px;
+}
+
+.inputType{
+  display: flex; 
+  flex-direction: column; 
+  margin: 10px 0px;
+}
+</style>
+
+<p>Edit Transcation</p> 
+
+<%= form_for @transaction, :url => { :action => "update" } do |form| %>
   <div class='inputType'>
     <%= form.label :customer_id %>
     <%= form.text_field :customer_id %>  
@@ -50,13 +131,11 @@
      <% @transaction.errors.full_messages_for(:amount_output).each do |message| %>
       <div class='error'><%= message %></div>
     <% end %>
- 
   </div>
-
   <div>
-    <%= form.submit id: "submitButton" %>
+    <%= form.submit %>
   </div>
-<% end %>   
+<% end %>  
 </div>
 </div>
 
@@ -97,6 +176,4 @@
     }
   }
 
-</script> 
-
-<%# :form => form, :disabled => true  %>
+</script>
