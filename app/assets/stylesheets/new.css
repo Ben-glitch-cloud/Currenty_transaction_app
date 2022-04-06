@@ -73,8 +73,16 @@ body{
 
 .error{
   color: red; 
-  font-size: 14px;
-} 
+  font-size: 14px; 
+  padding: 0px;
+  margin: 0px; 
+  height: 0px;
+}  
+
+.error p{
+  padding: 0px;
+  margin: 0px;
+}
 
 .inputType{
   display: flex; 
